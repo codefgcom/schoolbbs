@@ -15,6 +15,7 @@ layui.use(function () {
                 }, {
                     type: 'refresh',
                     icon: 'layui-icon-refresh',
+                    style: 'background-color: #29c127;'
                 }, {
                     type: 'help',
                     icon: 'layui-icon-help'
@@ -24,7 +25,7 @@ layui.use(function () {
                         let tipMsg = {
                             help: '帮助&关于',
                             send: '我也发一条',
-                            refresh: '随机刷新数据'
+                            refresh: '刷新随机数据'
                         }
                         layer.tips(tipMsg[type], this, {
                             tips: 4,
@@ -41,6 +42,24 @@ layui.use(function () {
                     // layer.msg(type);
                     if (type == 'refresh') {
                         o.loadData();
+                    } else if (type == 'help') {
+                        layer.open({
+                            type: 2,
+                            title: '关于',
+                            area: ['480px', '360px'],
+                            content: 'about.html',
+                            fixed: false, // 不固定
+                            shadeClose: true
+                        });
+                    } else if (type == 'send') {
+                        layer.open({
+                            type: 2,
+                            title: '发送',
+                            area: ['480px', '380px'],
+                            content: 'send.html',
+                            fixed: false, // 不固定
+                            shadeClose: true
+                        });
                     }
                 }
             });
