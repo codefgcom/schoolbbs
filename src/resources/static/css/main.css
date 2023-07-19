@@ -1,11 +1,61 @@
 body {
+    position: relative;
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100vh);
     overflow: hidden;
     /* background-color: black; */
     /* background-image: url('/img/background.png'); */
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#container {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: calc(100vh);
+    overflow: hidden;
+}
+
+.post-container {
+    position: absolute;
+    border: 1px solid #ccc;
+    width: 240px;
+    min-height: 160px;
+    overflow: hidden;
+    background-color: antiquewhite;
+}
+
+.post-container:hover {
+    z-index: 999999!important;
+}
+
+
+.post-content {
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    font-size: large;
+}
+
+.post-tip {
+    position: absolute;
+    bottom: 10px;
+    width: calc(100% - 10px);
+    overflow: hidden;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.post-tip-author {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.post-tip-time {
+    color: #aaa;
+    font-size: 12px;
 }

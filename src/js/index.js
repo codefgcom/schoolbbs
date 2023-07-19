@@ -1,6 +1,8 @@
 const express = require('express');
 const mysql = require('mysql2');
 const config = require('./config.js');
+const moment = require('moment');
+
 console.info(config);
 
 const app = express();
@@ -26,20 +28,34 @@ app.get('/sb', function (req, res) {
 });
 
 app.get('/loadData', function (req, res) {
-
     pool.getConnection((error, connection) => {
         if (error) {
             console.error('Error getting database connection:', error);
         } else {
-            connection.query('SELECT * FROM t_post_data', (error, results, fields) => {
+            connection.query('SELECT * FROM t_post_data ORDER BY RAND() limit 10', (error, results, fields) => {
                 connection.release(); // 释放连接到连接池
                 if (error) {
                     console.error('Error executing query:', error);
+                    res.send({
+                        success: false,
+                        code: 500,
+                        mssage: error
+                    })
                 } else {
                     console.log('Query results:', results);
                     // 处理查询结果
-
-                    res.send(results)
+                    if (results && results.length) {
+                        for (var i = 0; i < results.length; i++) {
+                            let r = results[i];
+                            const timeStr = moment(r.create_time).format('Y-MM-DD HH:mm:ss');
+                            r.create_time = timeStr;
+                        }
+                    };
+                    res.send({
+                        success: true,
+                        code: 0,
+                        data: results
+                    });
                 }
             });
         }
