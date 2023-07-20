@@ -84,7 +84,7 @@ layui.use(function () {
                 }
             })
         },
-        addPost: function (r) {
+        addPost: function (r, opt) {
             var maxWidth = window.innerWidth - 240;
             var maxHeight = window.innerHeight - 180;
 
@@ -97,6 +97,9 @@ layui.use(function () {
             p.css('z-index', Math.floor(Math.random() * 10000)).css('left', Math.floor(Math.random() * maxWidth) + 'px').css('top', Math.floor(Math.random() * maxHeight) + 'px')
             $("#container").append(p);
 
+            if (opt && opt.css) {
+                Object.entries(opt.css).forEach(a => p.css(a[0], a[1]));
+            }
 
             //拖拽
             (function (elem) {
@@ -140,6 +143,10 @@ layui.use(function () {
                             author: r.author,
                             create_time: '刚刚',
                             contact_info: r.contact_info
+                        }, {
+                            css: {
+                                'z-index': 999999
+                            }
                         });
                         layui.layer.msg('保存成功');
                         layui.layer.closeAll('iframe');

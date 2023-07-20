@@ -22,6 +22,7 @@ body {
 
 .post-container {
     position: absolute;
+    padding: 10px;
     border: 1px solid #ccc;
     width: 240px;
     min-height: 160px;
@@ -37,7 +38,6 @@ body {
 
 .post-content {
     width: 100%;
-    padding: 10px;
     overflow: hidden;
     font-size: large;
 }
@@ -45,7 +45,7 @@ body {
 .post-tip {
     position: absolute;
     bottom: 10px;
-    width: calc(100% - 10px);
+    width: calc(100% - 20px);
     overflow: hidden;
     padding-right: 10px;
     text-align: right;
