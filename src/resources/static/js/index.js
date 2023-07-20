@@ -96,6 +96,32 @@ layui.use(function () {
             p.append(content).append(tip);
             p.css('z-index', Math.floor(Math.random() * 10000)).css('left', Math.floor(Math.random() * maxWidth) + 'px').css('top', Math.floor(Math.random() * maxHeight) + 'px')
             $("#container").append(p);
+
+
+            //拖拽
+            (function (elem) {
+                var draggableDiv = elem;
+                var offsetX, offsetY;
+
+                // 按下鼠标时的处理函数
+                draggableDiv.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
+                    offsetX = e.clientX - draggableDiv.offsetLeft;
+                    offsetY = e.clientY - draggableDiv.offsetTop;
+                    window.addEventListener('mousemove', dragDiv);
+                });
+
+                // 松开鼠标时的处理函数
+                draggableDiv.addEventListener('mouseup', function () {
+                    window.removeEventListener('mousemove', dragDiv);
+                });
+
+                // 拖拽函数
+                function dragDiv(e) {
+                    draggableDiv.style.left = (e.clientX - offsetX) + 'px';
+                    draggableDiv.style.top = (e.clientY - offsetY) + 'px';
+                }
+            })(p[0]);
         },
         sendMsg: function (r) {
             $.ajax({
@@ -115,6 +141,7 @@ layui.use(function () {
                             create_time: '刚刚',
                             contact_info: r.contact_info
                         });
+                        layui.layer.msg('保存成功');
                         layui.layer.closeAll('iframe');
                     } else {
                         layui.layer.msg(d.message || '数据加载错误');

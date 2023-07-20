@@ -5,8 +5,8 @@ body {
     width: 100%;
     height: calc(100vh);
     overflow: hidden;
-    /* background-color: black; */
-    /* background-image: url('/img/background.png'); */
+    background-color: black;
+    background-image: url('/img/background.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -27,10 +27,11 @@ body {
     min-height: 160px;
     overflow: hidden;
     background-color: antiquewhite;
+    cursor: move;
 }
 
 .post-container:hover {
-    z-index: 999999!important;
+    z-index: 999999 !important;
 }
 
 
@@ -51,8 +52,10 @@ body {
 }
 
 .post-tip-author {
+    font-style: italic;
     font-weight: bold;
     margin-right: 10px;
+    color: #666;
 }
 
 .post-tip-time {
