@@ -25,7 +25,7 @@ function InstallRoute(app) {
                 });
                 return;
             } else {
-                connection.query('SELECT * FROM t_post_data ORDER BY RAND() limit 30', (error, results, fields) => {
+                connection.query('SELECT * FROM t_post_data ORDER BY RAND() limit 10', (error, results, fields) => {
                     connection.release(); // 释放连接到连接池
                     if (error) {
                         console.error('Error executing query:', error);
