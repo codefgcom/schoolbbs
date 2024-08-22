@@ -39,6 +39,7 @@ body {
     width: 100%;
     overflow: hidden;
     font-size: large;
+    word-wrap: break-word;
 }
 
 .post-tip {
