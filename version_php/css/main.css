@@ -1,0 +1,63 @@
+body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: calc(100vh);
+    overflow: hidden;
+    background-color: black;
+    background-image: url('/img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#container {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: calc(100vh);
+    overflow: hidden;
+}
+
+.post-container {
+    position: absolute;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 240px;
+    min-height: 160px;
+    overflow: hidden;
+    background-color: antiquewhite;
+    cursor: move;
+}
+
+.post-container:hover {
+    z-index: 999999 !important;
+}
+
+.post-content {
+    width: 100%;
+    overflow: hidden;
+    font-size: large;
+}
+
+.post-tip {
+    position: absolute;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    overflow: hidden;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.post-tip-author {
+    font-style: italic;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #666;
+}
+
+.post-tip-time {
+    color: #aaa;
+    font-size: 12px;
+}
